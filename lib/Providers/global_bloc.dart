@@ -1,19 +1,25 @@
 import 'dart:async';
+import 'dart:ui';
 
+import 'package:hackaton_app_space_invader/Models/bullet.dart';
 import 'package:hackaton_app_space_invader/Models/game.dart';
 import 'package:hackaton_app_space_invader/Providers/bloc_provider.dart';
 
 
 class GlobalBloc implements BlocBase {
 
-  StreamController<Game> _cursorCtrl = StreamController<Game>();
-  Stream<Game> get cursorStream => _cursorCtrl.stream;
+  StreamController<Game> _gameCtrl = StreamController<Game>();
+  Stream<Game> get gameStream => _gameCtrl.stream;
 
   StreamController<double> _moveCtrl = StreamController<double>();
   Sink<double> get moveSink => _moveCtrl.sink;
 
-  StreamController<int> _shootCtrl = StreamController<int>();
-  Sink<int> get shootSink => _shootCtrl.sink;
+  StreamController<List<Bullet>> _shootCtrl = StreamController<List<Bullet>>();
+  Sink<List<Bullet>> get shootSink => _shootCtrl.sink;
+
+
+
+
   GlobalBloc() {
     _moveCtrl.stream.listen(_move);
     _shootCtrl.stream.listen(_shoot);
@@ -22,7 +28,7 @@ class GlobalBloc implements BlocBase {
   @override
   void dispose() {
     _shootCtrl.close();
-    _cursorCtrl.close();
+    _gameCtrl.close();
     _moveCtrl.close();
   }
 

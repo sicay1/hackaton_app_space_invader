@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hackaton_app_space_invader/Providers/bloc_provider.dart';
 import 'package:hackaton_app_space_invader/Providers/global_bloc.dart';
 
+import 'Components/home_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
