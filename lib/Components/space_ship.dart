@@ -1,3 +1,3 @@
 class SpaceShip {
-  
+  static final 
 }

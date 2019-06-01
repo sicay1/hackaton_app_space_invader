@@ -4,7 +4,7 @@ import 'package:hackaton_app_space_invader/Providers/bloc_provider.dart';
 import 'package:hackaton_app_space_invader/Providers/global_bloc.dart';
 
 class ButtonComponent extends StatelessWidget {
-  ButtonComponent({this.icon,this.direction,this.speed});
+  ButtonComponent({this.icon, this.direction, this.speed});
   final int direction;
   final Widget icon;
   final double speed;
@@ -13,11 +13,8 @@ class ButtonComponent extends StatelessWidget {
   static const double size = 100.0;
   static const Duration _duration = Duration(milliseconds: 1);
   static const double _padding = 10.0;
-  static const  double _borderW = 1.0;
-  static const  double _blur = 8.0;
-
-  
-
+  static const double _borderW = 1.0;
+  static const double _blur = 8.0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,7 @@ class ButtonComponent extends StatelessWidget {
     Timer timer;
 
     void _move(Timer t) {
-      _bloc.moveSink.add(speed*direction);
+      _bloc.moveSink.add(speed * direction);
     }
 
     void _onTapDown(TapDownDetails tap) {
@@ -38,20 +35,22 @@ class ButtonComponent extends StatelessWidget {
     }
 
     return GestureDetector(
-        onTapUp: _onTapUp,
-        onTapDown: _onTapDown,
-        child: Container(
-          height: size ,
-          width: size ,
-          padding: EdgeInsets.all(_padding),
-          decoration: BoxDecoration(
-              border: Border.all(color: _primaryColor, width: _borderW),
-              borderRadius: BorderRadius.circular(size-_padding),
-              color: _secondaryColor,
-              boxShadow: [BoxShadow(color: _primaryColor, blurRadius: _blur),],
-          ),
-          child:  icon,
+      onTapUp: _onTapUp,
+      onTapDown: _onTapDown,
+      child: Container(
+        height: size,
+        width: size,
+        padding: EdgeInsets.all(_padding),
+        decoration: BoxDecoration(
+          border: Border.all(color: _primaryColor, width: _borderW),
+          borderRadius: BorderRadius.circular(size - _padding),
+          color: _secondaryColor,
+          boxShadow: [
+            BoxShadow(color: _primaryColor, blurRadius: _blur),
+          ],
         ),
+        child: icon,
+      ),
     );
   }
 }
