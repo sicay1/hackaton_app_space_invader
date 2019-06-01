@@ -8,9 +8,9 @@ class ButtonComponent extends StatelessWidget {
   final int direction;
   final Widget icon;
   final double speed;
-  static const Color _primaryColor = Colors.white;
-  static const Color _secondaryColor = Colors.blueAccent;
-  static const double size = 60.0;
+  static const Color _primaryColor = Colors.blueAccent;
+  static const Color _secondaryColor = Colors.white;
+  static const double size = 100.0;
   static const Duration _duration = Duration(milliseconds: 1);
   static const double _padding = 10.0;
   static const  double _borderW = 1.0;
