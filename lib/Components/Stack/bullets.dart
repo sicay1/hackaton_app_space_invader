@@ -27,13 +27,13 @@ class _BulletsState extends State<Bullets> {
     GlobalBloc _bloc = BlocProvider.of<GlobalBloc>(context);
     _bloc.bulletStream.listen((initialPosition)=> _shoot(initialPosition));
 
-    Widget _lazer(double _x) {
+    Widget _lazer() {
         if (_on) {
         return Align(
-            alignment: Alignment((_x*2)/(_maxWidth-1), _lazerAltitude),
+            alignment: Alignment((_startingPoint*2)/(_maxWidth-1), _lazerAltitude),
             child: Container(
-              width: 5.0,
-              height: _maxHeight,
+              width: 10.0,
+              height: _maxHeight-_lazerAltitude,
               color: Colors.greenAccent
             ),
           );
@@ -45,7 +45,9 @@ class _BulletsState extends State<Bullets> {
     return Container(
       width: _maxWidth - 20,
       height: _maxHeight - 20,
-      child: _lazer(_startingPoint),
+      child: Center(child:
+      _lazer()
+      ),
     );
   }
 }
