@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton_app_space_invader/Components/Stack/space_widget.dart';
 import 'package:hackaton_app_space_invader/Components/button_component.dart';
-import 'package:hackaton_app_space_invader/Components/space_widget.dart';
 import 'package:hackaton_app_space_invader/Providers/bloc_provider.dart';
 import 'package:hackaton_app_space_invader/Providers/global_bloc.dart';
 
@@ -21,7 +21,10 @@ class HomeScreen extends StatelessWidget {
         stream: _bloc.shipStream,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           final double _shipPosition = snapshot.data;
-          return SpaceWidget(shipPosition: _shipPosition);
+          return Stack(children: <Widget>[
+            
+            SpaceWidget(shipPosition: _shipPosition),
+          ],);
             }
           ),
       floatingActionButton: 

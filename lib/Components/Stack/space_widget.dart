@@ -11,7 +11,7 @@ class SpaceWidget extends StatelessWidget{
     final double _maxWidth = MediaQuery.of(context).size.width;
     final double _maxHeight = MediaQuery.of(context).size.height;
 
-    Alignment _alignment = Alignment(shipPosition + _correction, _shipAltitude);
+    Alignment _alignment = Alignment(((shipPosition +_correction)*2)/(_maxWidth-1), _shipAltitude);
 
     return Center(
       child: Align(
