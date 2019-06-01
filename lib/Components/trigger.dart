@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hackaton_app_space_invader/Providers/bloc_provider.dart';
 import 'package:hackaton_app_space_invader/Providers/global_bloc.dart';
 
-class ButtonComponent extends StatelessWidget {
-  ButtonComponent({this.icon, this.direction});
-  final int direction;
-  final Widget icon;
+class Trigger extends StatelessWidget {
+
   static const Color _primaryColor = Colors.blueAccent;
   static const Color _secondaryColor = Colors.white;
   static const double size = 80.0;
@@ -17,17 +15,9 @@ class ButtonComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     GlobalBloc _bloc = BlocProvider.of<GlobalBloc>(context);
 
-    void _onTapUp(TapUpDetails tap) {
-      _bloc.stopSink.add(true);
-    }
-
-    void _onTapDown(TapDownDetails tap) {
-        _bloc.moveSink.add(direction);
-    }
 
     return GestureDetector(
-      onTapUp: _onTapUp,
-      onTapDown: _onTapDown,
+      onTap:   ()=> _bloc.shootSink.add(true),
       child: Container(
         height: size,
         width: size,
@@ -40,7 +30,7 @@ class ButtonComponent extends StatelessWidget {
             BoxShadow(color: _primaryColor, blurRadius: _blur),
           ],
         ),
-        child: icon,
+        child: Image.asset('assets/shoot.png'),
       ),
     );
   }
